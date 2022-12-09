@@ -78,12 +78,20 @@ def get_guessed_word(secret_word, letters_guessed):
       what letters in secret_word have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE...
-    pass
+    guess_string = ''
+
+    for letter in secret_word:
+        if letter in letters_guessed:
+            guess_string += letter
+        else:
+            guess_string += '_ '
+    return guess_string
 
 
 # Testcases
-# print(get_guessed_word('apple', ['e', 'i', 'k', 'p', 'r', 's']))
-# print(get_guessed_word('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u']))
+print(get_guessed_word('apple', ['e', 'i', 'k', 'p', 'r', 's']))
+print(get_guessed_word('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u']))
+
 
 def get_available_letters(letters_guessed):
     '''
@@ -92,11 +100,17 @@ def get_available_letters(letters_guessed):
       yet been guessed.
     '''
     # FILL IN YOUR CODE HERE...   
-    pass
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    not_guessed = ''
+    for letter in alphabet:
+        if letter not in letters_guessed:
+            not_guessed += letter
+    return not_guessed
 
 
 # Testcases
-# print( get_available_letters(['e', 'i', 'k', 'p', 'r', 's']) )
+print(get_available_letters(['e', 'i', 'k', 'p', 'r', 's']))
+
 
 def game_loop(secret_word):
     '''
