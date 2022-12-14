@@ -56,13 +56,12 @@ def is_word_guessed(secret_word, letters_guessed):
     """
     # FILL IN YOUR CODE HERE...
     count = 0
-    for letters in letters_guessed:
-        if letters in secret_word:
-            count += 1
-    if count == len(secret_word):
-        return True
-    else:
-        return False
+    for letters in secret_word:
+        if letters in letters_guessed:
+            pass
+        else:
+            return False
+    return True
 
 
 print(is_word_guessed('apple', ['a', 'e', 'i', 'k', 'p', 'r', 's']))
