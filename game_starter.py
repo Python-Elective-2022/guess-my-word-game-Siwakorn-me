@@ -15,7 +15,7 @@ def load_words():
     Returns a list of valid words. Words are strings of lowercase letters.
     
     Depending on the size of the word list, this function may
-    take a while to finish.
+    take a while to finish .
     """
     print("Reading word_list file...")
     # inFile: file
