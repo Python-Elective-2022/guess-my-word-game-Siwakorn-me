@@ -54,7 +54,7 @@ def is_word_guessed(secret_word, letters_guessed):
     returns: boolean, True if all the letters of secret_word are in letters_guessed;
       False otherwise
     """
-    # FILL IN YOUR CODE HERE...
+
     count = 0
     for letters in secret_word:
         if letters in letters_guessed:
@@ -70,13 +70,13 @@ print(is_word_guessed('pineapple', []))
 
 
 def get_guessed_word(secret_word, letters_guessed):
-    '''
+    """
     secret_word: string, the word the user is guessing
     letters_guessed: list, what letters have been guessed so far
     returns: string, comprised of letters and underscores that represents
       what letters in secret_word have been guessed so far.
-    '''
-    # FILL IN YOUR CODE HERE...
+    """
+
     guess_string = ''
 
     for letter in secret_word:
@@ -93,15 +93,14 @@ print(get_guessed_word('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', '
 
 
 def get_available_letters(letters_guessed):
-    '''
+    """
     letters_guessed: list, what letters have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
-    '''
-    # FILL IN YOUR CODE HERE...   
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    """
+    # FILL IN YOUR CODE HERE...
     not_guessed = ''
-    for letter in alphabet:
+    for letter in string.ascii_lowercase:
         if letter not in letters_guessed:
             not_guessed += letter
     return not_guessed
@@ -112,27 +111,53 @@ print(get_available_letters(['e', 'i', 'k', 'p', 'r', 's']))
 
 
 def game_loop(secret_word):
-    '''
+    """
     secret_word: string, the secret word to guess.
 
     Starts up an interactive game.
 
-    * At the start of the game, let the user know how many 
+    * At the start of the game, let the user know how many
       letters the secret_word contains.
 
     * Ask the user to supply one guess (i.e. letter) per round.
 
-    * The user should receive feedback immediately after each guess 
+    * The user should receive feedback immediately after each guess
       about whether their guess appears in the computers word.
 
-    * After each round, you should also display to the user the 
-      partially guessed word so far, as well as letters that the 
+    * After each round, you should also display to the user the
+      partially guessed word so far, as well as letters that the
       user has not yet guessed.
 
     Follows the other limitations detailed in the problem write-up.
-    '''
-    # FILL IN YOUR CODE HERE...
-    pass
+    """
+
+    print("Let the game begin!")
+    print("I am thinking of a word with " + str(len(secret_word)) + " letters.", end="\n\n")
+    letters_guessed = []
+    guesses_left = 8
+    while guesses_left != 0:
+        print("You have " + str(guesses_left) + " guesses left.")
+        print("Letters available to you: " + get_available_letters(letters_guessed))
+        current_guess = input("Guess a letter: ")
+        print(current_guess.lower())
+        if current_guess.lower() in letters_guessed:
+            print("You fool! You tried this letter already: " + (get_guessed_word(secret_word, letters_guessed)))
+            print(end="\n\n")
+        elif current_guess.lower() in secret_word:
+            letters_guessed += current_guess.lower()
+            print("Correct: " + get_guessed_word(secret_word, letters_guessed))
+            guesses_left -= 1
+            print(end="\n\n")
+            if is_word_guessed(secret_word, letters_guessed) == True:
+                print("You WIN")
+                break
+        else:
+            letters_guessed += current_guess.lower()
+            print("Incorrect, this letter is not in my word: " + get_guessed_word(secret_word, letters_guessed))
+            guesses_left -= 1
+            print(end="\n\n")
+    if guesses_left == 0:
+        print("GAME OVER ! The word was " + secret_word + ".")
 
 
 def main():
