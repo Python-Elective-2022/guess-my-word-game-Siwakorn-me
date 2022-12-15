@@ -55,11 +55,8 @@ def is_word_guessed(secret_word, letters_guessed):
       False otherwise
     """
 
-    count = 0
     for letters in secret_word:
-        if letters in letters_guessed:
-            pass
-        else:
+        if letters not in letters_guessed:
             return False
     return True
 
