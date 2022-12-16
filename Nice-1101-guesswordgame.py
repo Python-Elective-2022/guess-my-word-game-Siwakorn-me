@@ -150,7 +150,7 @@ def main():
 
 
 # Testcases
-# you might want to pick your own
+# you might  want to pick your own
 # secret_word while you're testing
 
 
