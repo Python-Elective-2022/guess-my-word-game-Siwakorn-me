@@ -1,9 +1,3 @@
-# -----------------------------------
-# Helper code
-# You don't need to understand this helper code,
-# but you will have to know how to use the functions
-# (so be sure to read the docstrings!)
-
 import random
 import string
 
@@ -13,7 +7,7 @@ WORDLIST_FILENAME = "word_list.txt"
 def load_words():
     """
     Returns a list of valid words. Words are strings of lowercase letters.
-    
+
     Depending on the size of the word list, this function may
     take a while to finish .
     """
@@ -61,9 +55,9 @@ def is_word_guessed(secret_word, letters_guessed):
     return True
 
 
-print(is_word_guessed('apple', ['a', 'e', 'i', 'k', 'p', 'r', 's']))
+"""print(is_word_guessed('apple', ['a', 'e', 'i', 'k', 'p', 'r', 's']))
 print(is_word_guessed('durian', ['h', 'a', 'c', 'd', 'i', 'm', 'n', 'r', 't', 'u']))
-print(is_word_guessed('pineapple', []))
+print(is_word_guessed('pineapple', []))"""
 
 
 def get_guessed_word(secret_word, letters_guessed):
@@ -85,8 +79,8 @@ def get_guessed_word(secret_word, letters_guessed):
 
 
 # Testcases
-print(get_guessed_word('apple', ['e', 'i', 'k', 'p', 'r', 's']))
-print(get_guessed_word('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u']))
+"""print(get_guessed_word('apple', ['e', 'i', 'k', 'p', 'r', 's']))
+print(get_guessed_word('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u']))"""
 
 
 def get_available_letters(letters_guessed):
@@ -104,7 +98,7 @@ def get_available_letters(letters_guessed):
 
 
 # Testcases
-print(get_available_letters(['e', 'i', 'k', 'p', 'r', 's']))
+"""print(get_available_letters(['e', 'i', 'k', 'p', 'r', 's']))"""
 
 
 def game_loop(secret_word):
